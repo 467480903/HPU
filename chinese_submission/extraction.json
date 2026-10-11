@@ -1,0 +1,175 @@
+{
+  "records": [
+    {
+      "id": "R01",
+      "date": "2026-04-12",
+      "source": "应用评论",
+      "issue_category": "时效准确性",
+      "sentiment": "中性",
+      "urgency": "高",
+      "user_need": "准确的晚间到站时间预估",
+      "requested_action": null,
+      "evidence_quote": "晚上6点以后就会偏差15–20分钟",
+      "needs_follow_up": true,
+      "missing_information": ["受影响的路线", "受影响的站点"]
+    },
+    {
+      "id": "R02",
+      "date": "2026-04-13",
+      "source": "客服邮件",
+      "issue_category": "退款问题",
+      "sentiment": "负面",
+      "urgency": "高",
+      "user_need": "解决通行证重复扣款",
+      "requested_action": "退还重复扣款",
+      "evidence_quote": "请退还重复扣款。",
+      "needs_follow_up": true,
+      "missing_information": ["所需的交易 ID", "截图内容"]
+    },
+    {
+      "id": "R03",
+      "date": "2026-04-14",
+      "source": "调查反馈",
+      "issue_category": "可访问性",
+      "sentiment": "中性",
+      "urgency": "中",
+      "user_need": "在户外可读的颜色对比度",
+      "requested_action": null,
+      "evidence_quote": "绿色文字配灰色背景，在阳光下几乎看不见。",
+      "needs_follow_up": true,
+      "missing_information": ["设备信息", "受影响的页面"]
+    },
+    {
+      "id": "R04",
+      "date": "2026-04-15",
+      "source": "聊天记录",
+      "issue_category": "应用程序漏洞",
+      "sentiment": "中性",
+      "urgency": "中",
+      "user_need": "不会卡住并能持续更新的追踪器",
+      "requested_action": null,
+      "evidence_quote": "追踪器在 7:42 卡住了大约十分钟，然后一下子跳到‘已到达’。",
+      "needs_follow_up": true,
+      "missing_information": ["路线", "设备信息", "应用版本"]
+    },
+    {
+      "id": "R05",
+      "date": "2026-04-15",
+      "source": "应用评论",
+      "issue_category": "功能需求",
+      "sentiment": "正面",
+      "urgency": "低",
+      "user_need": "可配置的提前到站提醒",
+      "requested_action": "增加提前 10 分钟提醒选项",
+      "evidence_quote": "能不能增加一个选项，让我在到达前10分钟收到通知，而不只是提前 2 分钟？",
+      "needs_follow_up": true,
+      "missing_information": []
+    },
+    {
+      "id": "R06",
+      "date": "2026-04-16",
+      "source": "客服邮件",
+      "issue_category": "可访问性",
+      "sentiment": "负面",
+      "urgency": "高",
+      "user_need": "可靠的无障碍信息和可用坡道",
+      "requested_action": null,
+      "evidence_quote": "抵达的班车没有可用的坡道",
+      "needs_follow_up": true,
+      "missing_information": ["班车标识", "坡道不可用的原因"]
+    },
+    {
+      "id": "R07",
+      "date": "2026-04-16",
+      "source": "调查反馈",
+      "issue_category": "隐私问题",
+      "sentiment": "负面",
+      "urgency": "中",
+      "user_need": "了解后台位置访问和存储的数据",
+      "requested_action": "解释会存储哪些数据",
+      "evidence_quote": "请解释会存储哪些数据。",
+      "needs_follow_up": true,
+      "missing_information": ["存储的数据", "后台请求权限的原因"]
+    },
+    {
+      "id": "R08",
+      "date": "2026-04-17",
+      "source": "聊天记录",
+      "issue_category": "应用程序漏洞",
+      "sentiment": "负面",
+      "urgency": "中",
+      "user_need": "切换手机语言后仍能查看路线",
+      "requested_action": null,
+      "evidence_quote": "我把手机语言改成西班牙语后，我的路线就消失了。",
+      "needs_follow_up": true,
+      "missing_information": ["受影响的路线", "设备信息", "已确认的原因"]
+    },
+    {
+      "id": "R09",
+      "date": "2026-04-18",
+      "source": "应用评论",
+      "issue_category": "安全问题",
+      "sentiment": "负面",
+      "urgency": "高",
+      "user_need": "准确的夜间状态和更少的户外等待",
+      "requested_action": null,
+      "evidence_quote": "天黑以后，这让人觉得不安全。",
+      "needs_follow_up": true,
+      "missing_information": ["具体路线", "等待时长", "具体宿舍站点"]
+    },
+    {
+      "id": "R10",
+      "date": "2026-04-18",
+      "source": "调查反馈",
+      "issue_category": "时效准确性",
+      "sentiment": "中性",
+      "urgency": "中",
+      "user_need": "明确表示用户所在站点的到站状态",
+      "requested_action": null,
+      "evidence_quote": "‘Arriving’ 有时指的是前一站，而不是我自己的站点。",
+      "needs_follow_up": true,
+      "missing_information": ["受影响的路线", "受影响的站点"]
+    },
+    {
+      "id": "R11",
+      "date": "2026-04-19",
+      "source": "客服邮件",
+      "issue_category": "应用程序漏洞",
+      "sentiment": "负面",
+      "urgency": "高",
+      "user_need": "获取已付款访客日票的二维码",
+      "requested_action": null,
+      "evidence_quote": "付款倒是成功了，可应用里只显示一个转圈圈的加载图标。",
+      "needs_follow_up": true,
+      "missing_information": ["设备信息", "应用版本", "交易标识"]
+    },
+    {
+      "id": "R12",
+      "date": "2026-04-20",
+      "source": "应用评论",
+      "issue_category": "功能需求",
+      "sentiment": "中性",
+      "urgency": "低",
+      "user_need": "无需安装应用即可获取延误信息",
+      "requested_action": "增加简单的短信通知选项",
+      "evidence_quote": "请增加一个简单的短信通知选项。",
+      "needs_follow_up": true,
+      "missing_information": []
+    }
+  ],
+  "dataset_level_insights": {
+    "most_common_issue_categories": [
+      "应用程序漏洞",
+      "时效准确性",
+      "可访问性"
+    ],
+    "highest_priority_record_ids": [
+      "R01",
+      "R02",
+      "R06",
+      "R09",
+      "R11"
+    ],
+    "overall_sentiment": "中性"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "records": [
+    {
+      "id": "R01",
+      "date": "2026-04-12",
+      "source": "App review",
+      "issue_category": "timing_accuracy",
+      "sentiment": "mixed",
+      "urgency": "high",
+      "user_need": "accurate evening arrival estimates",
+      "requested_action": null,
+      "evidence_quote": "after 6 pm it is off by 15–20 minutes",
+      "needs_follow_up": true,
+      "missing_information": ["affected route", "affected stop"]
+    },
+    {
+      "id": "R02",
+      "date": "2026-04-13",
+      "source": "Help-desk email",
+      "issue_category": "payment_refund",
+      "sentiment": "negative",
+      "urgency": "high",
+      "user_need": "resolution of a duplicate pass charge",
+      "requested_action": "refund the duplicate charge",
+      "evidence_quote": "Please refund the duplicate charge.",
+      "needs_follow_up": true,
+      "missing_information": ["required transaction ID", "screenshot contents"]
+    },
+    {
+      "id": "R03",
+      "date": "2026-04-14",
+      "source": "Survey response",
+      "issue_category": "accessibility",
+      "sentiment": "mixed",
+      "urgency": "medium",
+      "user_need": "readable outdoor color contrast",
+      "requested_action": null,
+      "evidence_quote": "The green text on gray background is almost invisible in sunlight.",
+      "needs_follow_up": true,
+      "missing_information": ["device details", "affected screens"]
+    },
+    {
+      "id": "R04",
+      "date": "2026-04-15",
+      "source": "Chat transcript",
+      "issue_category": "app_bug",
+      "sentiment": "mixed",
+      "urgency": "medium",
+      "user_need": "a tracker that updates without freezing",
+      "requested_action": null,
+      "evidence_quote": "The tracker froze at 7:42 for about ten minutes, then jumped to arrived.",
+      "needs_follow_up": true,
+      "missing_information": ["route", "device details", "app version"]
+    },
+    {
+      "id": "R05",
+      "date": "2026-04-15",
+      "source": "App review",
+      "issue_category": "feature_request",
+      "sentiment": "positive",
+      "urgency": "low",
+      "user_need": "configurable advance arrival notifications",
+      "requested_action": "add a 10-minute-before-arrival notification option",
+      "evidence_quote": "Can you add an option to notify me 10 minutes before arrival instead of only 2 minutes?",
+      "needs_follow_up": true,
+      "missing_information": []
+    },
+    {
+      "id": "R06",
+      "date": "2026-04-16",
+      "source": "Help-desk email",
+      "issue_category": "accessibility",
+      "sentiment": "negative",
+      "urgency": "high",
+      "user_need": "reliable accessibility information and a working ramp",
+      "requested_action": null,
+      "evidence_quote": "the shuttle that arrived did not have a working ramp",
+      "needs_follow_up": true,
+      "missing_information": ["shuttle identifier", "reason the ramp was not working"]
+    },
+    {
+      "id": "R07",
+      "date": "2026-04-16",
+      "source": "Survey response",
+      "issue_category": "privacy",
+      "sentiment": "negative",
+      "urgency": "medium",
+      "user_need": "clarity about background location access and stored data",
+      "requested_action": "explain what data are stored",
+      "evidence_quote": "Please explain what data are stored.",
+      "needs_follow_up": true,
+      "missing_information": ["data stored", "reason for background permission"]
+    },
+    {
+      "id": "R08",
+      "date": "2026-04-17",
+      "source": "Chat transcript",
+      "issue_category": "app_bug",
+      "sentiment": "negative",
+      "urgency": "medium",
+      "user_need": "route availability after changing phone language",
+      "requested_action": null,
+      "evidence_quote": "My route disappeared after I changed my phone language to Spanish.",
+      "needs_follow_up": true,
+      "missing_information": ["affected route", "device details", "confirmed cause"]
+    },
+    {
+      "id": "R09",
+      "date": "2026-04-18",
+      "source": "App review",
+      "issue_category": "safety",
+      "sentiment": "negative",
+      "urgency": "high",
+      "user_need": "accurate late-night status and reduced outdoor waiting",
+      "requested_action": null,
+      "evidence_quote": "This feels unsafe after dark.",
+      "needs_follow_up": true,
+      "missing_information": ["specific route", "length of wait", "specific dorm stop"]
+    },
+    {
+      "id": "R10",
+      "date": "2026-04-18",
+      "source": "Survey response",
+      "issue_category": "timing_accuracy",
+      "sentiment": "mixed",
+      "urgency": "medium",
+      "user_need": "an unambiguous Arriving status for the user's stop",
+      "requested_action": null,
+      "evidence_quote": "‘Arriving’ sometimes means at the previous stop, not my stop.",
+      "needs_follow_up": true,
+      "missing_information": ["affected route", "affected stops"]
+    },
+    {
+      "id": "R11",
+      "date": "2026-04-19",
+      "source": "Help-desk email",
+      "issue_category": "app_bug",
+      "sentiment": "negative",
+      "urgency": "high",
+      "user_need": "access to the paid visitor pass QR code",
+      "requested_action": null,
+      "evidence_quote": "The payment went through, but the app just showed a spinning circle.",
+      "needs_follow_up": true,
+      "missing_information": ["device details", "app version", "transaction identifier"]
+    },
+    {
+      "id": "R12",
+      "date": "2026-04-20",
+      "source": "App review",
+      "issue_category": "feature_request",
+      "sentiment": "mixed",
+      "urgency": "low",
+      "user_need": "delay information without installing the app",
+      "requested_action": "add a simple text message option",
+      "evidence_quote": "Please add a simple text message option.",
+      "needs_follow_up": true,
+      "missing_information": []
+    }
+  ],
+  "dataset_level_insights": {
+    "most_common_issue_categories": [
+      "app_bug",
+      "timing_accuracy",
+      "accessibility"
+    ],
+    "highest_priority_record_ids": [
+      "R01",
+      "R02",
+      "R06",
+      "R09",
+      "R11"
+    ],
+    "overall_sentiment": "mixed"
+  }
+}

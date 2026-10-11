@@ -1,0 +1,385 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>提交</title><style>@page { size: A4; margin: 18mm 16mm; } body { font-family: "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif; color: #222; font-size: 11pt; line-height: 1.55; } h1 { font-size: 22pt; border-bottom: 2px solid #444; padding-bottom: 6px; page-break-after: avoid; } h2 { font-size: 16pt; margin-top: 1.4em; page-break-after: avoid; } h3 { page-break-after: avoid; } table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 12px 0; } th, td { border: 1px solid #777; padding: 6px; vertical-align: top; word-break: break-word; } th { background: #eee; } pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f5f5f5; border: 1px solid #ddd; padding: 10px; font-size: 8pt; line-height: 1.35; } code { font-family: "Noto Sans Mono CJK SC", "DejaVu Sans Mono", monospace; } blockquote { border-left: 4px solid #aaa; margin-left: 0; padding-left: 12px; color: #555; } li { margin: 3px 0; } p { orphans: 3; widows: 3; }</style></head><body><h1>第一部分 - 提示词</h1>
+<h2>markdown 输出所用提示词</h2>
+<p>角色：你是一名细致的NLP分析员。
+任务：分析所提供的原始数据集，并完成总结。
+背景：该数据集收集的是学生对校园班车追踪应用的反馈。
+输入：</p>
+<pre><code>- **R01 — 应用评论 — 2026-04-12：**“早上公交到站时间通常还可以，但晚上6点以后就会偏差15–20分钟。我因为应用显示班车还有3分钟到，结果两次都错过了实验课分组。”
+- **R02 — 客服邮件 — 2026-04-13：**“同一张月度学生班车通行证，我被扣了两次费。一账单显示一笔待处理、一笔已扣款。请退还重复扣款。我附上了截图，但我不知道你们需要哪一个交易 ID。”
+- **R03 — 调查回复 — 2026-04-14：**“这个应用很实用，但在户外时颜色对比很难看清。绿色文字配灰色背景，在阳光下几乎看不见。”
+- **R04 — 聊天记录 — 2026-04-15：**“司机很友好，还帮我拿了包。追踪器在 7:42 卡住了大约十分钟，然后一下子跳到‘已到达’。没有崩溃提示，只是卡住了。”
+- **R05 — 应用评论 — 2026-04-15：**“我喜欢班车快到时的提醒。能不能增加一个选项，让我在到达前 10 分钟收到通知，而不只是提前 2 分钟？”
+- **R06 — 客服邮件 — 2026-04-16：**“无障碍班车图标不可靠。它显示了北门可到达，但抵达的班车没有可用的坡道。我不得不等下一班。”
+- **R07 — 调查回复 — 2026-04-16：**“它总是请求位置权限。我理解在使用应用时需要定位权限，但为什么它会在后台请求？请解释会存储哪些数据。”
+- **R08 — 聊天记录 — 2026-04-17：**“我把手机语言改成西班牙语后，我的路线就消失了。切回英语后，路线又回来了。也许路线名称没有翻译？”
+- **R09 — 应用评论 — 2026-04-18：**“班车在夜里到宿舍附近时总是晚点。校园班车追踪应用仍然显示准时，但学生们却在外面等了很久。天黑以后，这让人觉得不安全。”
+- **R10 — 调查回复 — 2026-04-18：**“整体上比旧的 PDF 时刻表好太多了。我能看到实时公交和站点名称。唯一让人困惑的是，‘Arriving’ 有时指的是前一站，而不是我自己的站点。”
+- **R11 — 客服邮件 — 2026-04-19：**“我给家长买了访客日票，但二维码一直没加载出来。我们试了 Wi-Fi 和蜂窝网络。付款倒是成功了，可应用里只显示一个转圈圈的加载图标。”
+- **R12 — 应用评论 — 2026-04-20：**“请增加一个简单的短信通知选项。有些学生不想为了知道班车是否延误而再去安装一个应用。”
+</code></pre>
+<p>输出格式：必须严格按照下方的 Markdown 模板执行。
+规则：</p>
+<ul>
+<li>仅基于数据集中的信息。</li>
+<li>不要编造任何缺失细节。</li>
+<li>请使用记录 ID 作为证据。</li>
+<li>如果某个字段未知，请写 null。</li>
+<li>表述要简洁，且面向管理者。</li>
+</ul>
+<p>Markdown模板参考：</p>
+<pre><code># 校园班车应用反馈摘要(Campus Shuttle App Feedback Summary)
+## 1. 一句话概述 (One-Sentence Overview)
+[用一句话概括整体反馈。]
+## 2. 主要主题 (Top Themes)
+| 主题 | 证据ID | 用户影响 | 建议行动 |
+|--- |--- |--- |--- |
+| [主题1] | [R , R ] | [影响] | [行动] |
+| [主题2] | [R , R ] | [影响] | [行动] |
+| [主题3] | [R , R ] | [影响] | [行动] |
+## 3. 正面反馈(Positive Feedback)
+- [带记录ID的正面要点]
+- [带记录ID的正面要点]
+## 4. 高优先级风险 (High-Priority Risks)
+- [风险、其重要性说明、证据ID]
+## 5. 缺失或模糊信息 (Missing or Ambiguous Information)
+- [缺少了什么信息？]
+## 6. 建议的后续步骤 (Recommended Next Steps)
+1. [下一步]
+2. [下一步]
+3. [下一步]
+</code></pre>
+<h2>JSON 输出提示词</h2>
+<p>角色：你是一名细致的NLP分析员。
+任务：分析所提供的原始数据集，并完成 提取。
+背景：该数据集收集的是学生对校园班车追踪应用的反馈。
+输入：</p>
+<pre><code>- **R01 — 应用评论 — 2026-04-12：**“早上公交到站时间通常还可以，但晚上6点以后就会偏差15–20分钟。我因为应用显示班车还有3分钟到，结果两次都错过了实验课分组。”
+- **R02 — 客服邮件 — 2026-04-13：**“同一张月度学生班车通行证，我被扣了两次费。一账单显示一笔待处理、一笔已扣款。请退还重复扣款。我附上了截图，但我不知道你们需要哪一个交易 ID。”
+- **R03 — 调查回复 — 2026-04-14：**“这个应用很实用，但在户外时颜色对比很难看清。绿色文字配灰色背景，在阳光下几乎看不见。”
+- **R04 — 聊天记录 — 2026-04-15：**“司机很友好，还帮我拿了包。追踪器在 7:42 卡住了大约十分钟，然后一下子跳到‘已到达’。没有崩溃提示，只是卡住了。”
+- **R05 — 应用评论 — 2026-04-15：**“我喜欢班车快到时的提醒。能不能增加一个选项，让我在到达前 10 分钟收到通知，而不只是提前 2 分钟？”
+- **R06 — 客服邮件 — 2026-04-16：**“无障碍班车图标不可靠。它显示了北门可到达，但抵达的班车没有可用的坡道。我不得不等下一班。”
+- **R07 — 调查回复 — 2026-04-16：**“它总是请求位置权限。我理解在使用应用时需要定位权限，但为什么它会在后台请求？请解释会存储哪些数据。”
+- **R08 — 聊天记录 — 2026-04-17：**“我把手机语言改成西班牙语后，我的路线就消失了。切回英语后，路线又回来了。也许路线名称没有翻译？”
+- **R09 — 应用评论 — 2026-04-18：**“班车在夜里到宿舍附近时总是晚点。校园班车追踪应用仍然显示准时，但学生们却在外面等了很久。天黑以后，这让人觉得不安全。”
+- **R10 — 调查回复 — 2026-04-18：**“整体上比旧的 PDF 时刻表好太多了。我能看到实时公交和站点名称。唯一让人困惑的是，‘Arriving’ 有时指的是前一站，而不是我自己的站点。”
+- **R11 — 客服邮件 — 2026-04-19：**“我给家长买了访客日票，但二维码一直没加载出来。我们试了 Wi-Fi 和蜂窝网络。付款倒是成功了，可应用里只显示一个转圈圈的加载图标。”
+- **R12 — 应用评论 — 2026-04-20：**“请增加一个简单的短信通知选项。有些学生不想为了知道班车是否延误而再去安装一个应用。”
+</code></pre>
+<p>输出格式：必须严格按照下方的 JSON 模板执行。
+规则：</p>
+<ul>
+<li>仅基于数据集中的信息。</li>
+<li>不要编造任何缺失细节。</li>
+<li>如果某个字段未知，请写 null。特别是 requested_action ，如果数据集中不存在， 就写null。</li>
+<li>表述要简洁，且面向管理者。</li>
+</ul>
+<p>JSON 模板参考：</p>
+<pre><code>{
+&quot;records&quot;: [
+{
+&quot;id&quot;: &quot;R01&quot;,
+&quot;date&quot;: &quot;YYYY-MM-DD 或 null&quot;,
+&quot;source&quot;: &quot;应用评论 | 客服邮件 | 调查反馈 | 聊天记录&quot;,
+&quot;issue_category&quot;: &quot;时效准确性 | 退款问题 | 可访问性 | 应用程序漏洞 | 安全问题 | 隐私问题 | 功能需求 | 正面
+反馈 | 不明确&quot;,
+&quot;sentiment&quot;: &quot;正面 | 中性 | 负面 | 不明确&quot;,
+&quot;urgency&quot;: &quot;低 | 中 | 高&quot;,
+&quot;user_need&quot;: &quot;用简短语句描述用户的需求&quot;,
+&quot;requested_action&quot;: &quot;简短说明或 null&quot;,
+&quot;evidence_quote&quot;: &quot;从原始记录中摘抄的简短原文&quot;,
+&quot;needs_follow_up&quot;: true,
+&quot;missing_information&quot;: [&quot;信息项1&quot;, &quot;信息项2&quot;]
+}
+],
+&quot;dataset_level_insights&quot;: {
+&quot;most_common_issue_categories&quot;: [&quot;类别1&quot;, &quot;类别2&quot;, &quot;类别3&quot;],
+&quot;highest_priority_record_ids&quot;: [&quot;R_&quot;, &quot;R_&quot;],
+&quot;overall_sentiment&quot;: &quot;正面 | 中性 | 负面 | 不明确&quot;
+}
+}
+</code></pre>
+<h1>第二部分 - markdown 输出</h1>
+<h1>校园班车应用反馈摘要(Campus Shuttle App Feedback Summary)</h1>
+<h2>1. 一句话概述 (One-Sentence Overview)</h2>
+<p>学生普遍认可校园班车追踪应用提升了信息获取效率，但实时准确性、票务可靠性、无障碍支持和部分使用体验仍影响用户信任与满意度。</p>
+<h2>2. 主要主题 (Top Themes)</h2>
+<table>
+<thead>
+<tr>
+<th>主题</th>
+<th>证据ID</th>
+<th>用户影响</th>
+<th>建议行动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实时追踪与到站预测准确性</td>
+<td>R01、R04、R09、R10</td>
+<td>用户可能错过课程安排、长时间等待，并对夜间乘车安全产生担忧</td>
+<td>优化车辆定位和到站预测逻辑，检查“Arriving”等状态定义</td>
+</tr>
+<tr>
+<td>票务与通知功能体验</td>
+<td>R02、R05、R11、R12</td>
+<td>重复扣款、二维码无法加载、通知方式不足降低使用便利性</td>
+<td>排查支付流程，增加更多通知选项并改善票务错误提示</td>
+</tr>
+<tr>
+<td>可访问性、隐私与本地化问题</td>
+<td>R03、R06、R07、R08</td>
+<td>用户在户外阅读困难、无法准确获得无障碍信息、担忧定位数据使用，部分语言环境下功能异常</td>
+<td>提升界面对比度，确保无障碍信息准确，明确隐私说明并修复语言切换问题</td>
+</tr>
+</tbody>
+</table>
+<h2>3. 正面反馈(Positive Feedback)</h2>
+<ul>
+<li>R03：用户认为应用“很实用”，说明核心价值被认可。</li>
+<li>R04：用户反馈司机友好，并提供额外帮助。</li>
+<li>R05：用户喜欢班车临近时的提醒功能。</li>
+<li>R10：用户认为应用相比旧 PDF 时刻表有明显提升，可查看实时公交和站点名称。</li>
+</ul>
+<h2>4. 高优先级风险 (High-Priority Risks)</h2>
+<ul>
+<li><strong>实时信息不准确风险：</strong> R01、R04、R09、R10显示应用状态可能与实际班车情况不一致，可能导致错过课程、等待时间增加及安全感下降。</li>
+<li><strong>支付与票务风险：</strong> R02出现同一通行证重复扣款问题，R11出现付款成功但二维码无法加载问题，可能影响乘车资格使用。</li>
+<li><strong>无障碍信息风险：</strong> R06显示应用提供的无障碍班车信息与实际车辆条件不一致，可能影响需要无障碍服务的学生。</li>
+<li><strong>隐私信任风险：</strong> R07反映用户不了解后台定位请求原因及数据存储范围。</li>
+</ul>
+<h2>5. 缺失或模糊信息 (Missing or Ambiguous Information)</h2>
+<ul>
+<li>未提供实时追踪错误的具体技术原因、发生频率及涉及路线范围（R01、R04、R09、R10）。</li>
+<li>未提供重复扣款的交易 ID、退款状态及支付系统处理结果（R02）。</li>
+<li>未说明应用实际收集、保存和使用的位置数据类型（R07）。</li>
+<li>未提供语言切换导致路线消失的具体受影响路线或翻译规则（R08）。</li>
+<li>未提供无障碍班车信息更新来源及维护流程（R06）。</li>
+</ul>
+<h2>6. 建议的后续步骤 (Recommended Next Steps)</h2>
+<ol>
+<li>优先修复实时追踪和到站预测准确性问题，验证R01、R04、R09、R10中的异常场景。</li>
+<li>检查支付、二维码加载和通知机制，降低票务失败及信息获取障碍。</li>
+<li>改进无障碍支持、隐私透明度、界面对比度和多语言兼容性，提升整体可用性。</li>
+</ol>
+<h1>第三部分 - JSON 输出</h1>
+<pre><code>{
+  &quot;records&quot;: [
+    {
+      &quot;id&quot;: &quot;R01&quot;,
+      &quot;date&quot;: &quot;2026-04-12&quot;,
+      &quot;source&quot;: &quot;应用评论&quot;,
+      &quot;issue_category&quot;: &quot;时效准确性&quot;,
+      &quot;sentiment&quot;: &quot;中性&quot;,
+      &quot;urgency&quot;: &quot;高&quot;,
+      &quot;user_need&quot;: &quot;获得准确的晚间班车到站时间&quot;,
+      &quot;requested_action&quot;: null,
+      &quot;evidence_quote&quot;: &quot;晚上6点以后就会偏差15–20分钟&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;具体路线&quot;,
+        &quot;具体站点&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R02&quot;,
+      &quot;date&quot;: &quot;2026-04-13&quot;,
+      &quot;source&quot;: &quot;客服邮件&quot;,
+      &quot;issue_category&quot;: &quot;退款问题&quot;,
+      &quot;sentiment&quot;: &quot;负面&quot;,
+      &quot;urgency&quot;: &quot;高&quot;,
+      &quot;user_need&quot;: &quot;解决月度通行证重复扣款&quot;,
+      &quot;requested_action&quot;: &quot;退还重复扣款&quot;,
+      &quot;evidence_quote&quot;: &quot;请退还重复扣款。&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;所需交易 ID&quot;,
+        &quot;截图内容&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R03&quot;,
+      &quot;date&quot;: &quot;2026-04-14&quot;,
+      &quot;source&quot;: &quot;调查反馈&quot;,
+      &quot;issue_category&quot;: &quot;可访问性&quot;,
+      &quot;sentiment&quot;: &quot;中性&quot;,
+      &quot;urgency&quot;: &quot;中&quot;,
+      &quot;user_need&quot;: &quot;在户外清楚阅读应用文字&quot;,
+      &quot;requested_action&quot;: null,
+      &quot;evidence_quote&quot;: &quot;绿色文字配灰色背景，在阳光下几乎看不见。&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;受影响的具体页面&quot;,
+        &quot;设备信息&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R04&quot;,
+      &quot;date&quot;: &quot;2026-04-15&quot;,
+      &quot;source&quot;: &quot;聊天记录&quot;,
+      &quot;issue_category&quot;: &quot;应用程序漏洞&quot;,
+      &quot;sentiment&quot;: &quot;中性&quot;,
+      &quot;urgency&quot;: &quot;中&quot;,
+      &quot;user_need&quot;: &quot;追踪器持续、及时地更新状态&quot;,
+      &quot;requested_action&quot;: null,
+      &quot;evidence_quote&quot;: &quot;追踪器在 7:42 卡住了大约十分钟&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;具体路线&quot;,
+        &quot;设备信息&quot;,
+        &quot;应用版本&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R05&quot;,
+      &quot;date&quot;: &quot;2026-04-15&quot;,
+      &quot;source&quot;: &quot;应用评论&quot;,
+      &quot;issue_category&quot;: &quot;功能需求&quot;,
+      &quot;sentiment&quot;: &quot;正面&quot;,
+      &quot;urgency&quot;: &quot;低&quot;,
+      &quot;user_need&quot;: &quot;自行选择更早的到站提醒时间&quot;,
+      &quot;requested_action&quot;: &quot;增加到达前10分钟的通知选项&quot;,
+      &quot;evidence_quote&quot;: &quot;让我在到达前 10 分钟收到通知，而不只是提前 2 分钟？&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;R06&quot;,
+      &quot;date&quot;: &quot;2026-04-16&quot;,
+      &quot;source&quot;: &quot;客服邮件&quot;,
+      &quot;issue_category&quot;: &quot;可访问性&quot;,
+      &quot;sentiment&quot;: &quot;负面&quot;,
+      &quot;urgency&quot;: &quot;高&quot;,
+      &quot;user_need&quot;: &quot;获得可靠的无障碍班车信息和可用坡道&quot;,
+      &quot;requested_action&quot;: null,
+      &quot;evidence_quote&quot;: &quot;抵达的班车没有可用的坡道&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;具体班车标识&quot;,
+        &quot;坡道不可用的原因&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R07&quot;,
+      &quot;date&quot;: &quot;2026-04-16&quot;,
+      &quot;source&quot;: &quot;调查反馈&quot;,
+      &quot;issue_category&quot;: &quot;隐私问题&quot;,
+      &quot;sentiment&quot;: &quot;负面&quot;,
+      &quot;urgency&quot;: &quot;中&quot;,
+      &quot;user_need&quot;: &quot;了解后台位置权限和存储的数据&quot;,
+      &quot;requested_action&quot;: &quot;解释会存储哪些数据&quot;,
+      &quot;evidence_quote&quot;: &quot;请解释会存储哪些数据。&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;实际存储的数据&quot;,
+        &quot;后台请求位置权限的原因&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R08&quot;,
+      &quot;date&quot;: &quot;2026-04-17&quot;,
+      &quot;source&quot;: &quot;聊天记录&quot;,
+      &quot;issue_category&quot;: &quot;应用程序漏洞&quot;,
+      &quot;sentiment&quot;: &quot;负面&quot;,
+      &quot;urgency&quot;: &quot;中&quot;,
+      &quot;user_need&quot;: &quot;切换手机语言后仍能查看路线&quot;,
+      &quot;requested_action&quot;: null,
+      &quot;evidence_quote&quot;: &quot;我把手机语言改成西班牙语后，我的路线就消失了。&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;具体路线&quot;,
+        &quot;设备信息&quot;,
+        &quot;路线消失的确认原因&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R09&quot;,
+      &quot;date&quot;: &quot;2026-04-18&quot;,
+      &quot;source&quot;: &quot;应用评论&quot;,
+      &quot;issue_category&quot;: &quot;安全问题&quot;,
+      &quot;sentiment&quot;: &quot;负面&quot;,
+      &quot;urgency&quot;: &quot;高&quot;,
+      &quot;user_need&quot;: &quot;获得准确的夜间班车状态并减少户外等待&quot;,
+      &quot;requested_action&quot;: null,
+      &quot;evidence_quote&quot;: &quot;天黑以后，这让人觉得不安全。&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;具体路线&quot;,
+        &quot;具体宿舍站点&quot;,
+        &quot;等待时长&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R10&quot;,
+      &quot;date&quot;: &quot;2026-04-18&quot;,
+      &quot;source&quot;: &quot;调查反馈&quot;,
+      &quot;issue_category&quot;: &quot;时效准确性&quot;,
+      &quot;sentiment&quot;: &quot;中性&quot;,
+      &quot;urgency&quot;: &quot;中&quot;,
+      &quot;user_need&quot;: &quot;明确知道Arriving状态对应哪个站点&quot;,
+      &quot;requested_action&quot;: null,
+      &quot;evidence_quote&quot;: &quot;‘Arriving’ 有时指的是前一站，而不是我自己的站点。&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;具体路线&quot;,
+        &quot;具体站点&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R11&quot;,
+      &quot;date&quot;: &quot;2026-04-19&quot;,
+      &quot;source&quot;: &quot;客服邮件&quot;,
+      &quot;issue_category&quot;: &quot;应用程序漏洞&quot;,
+      &quot;sentiment&quot;: &quot;负面&quot;,
+      &quot;urgency&quot;: &quot;高&quot;,
+      &quot;user_need&quot;: &quot;获取已付款访客日票的二维码&quot;,
+      &quot;requested_action&quot;: null,
+      &quot;evidence_quote&quot;: &quot;付款倒是成功了，可应用里只显示一个转圈圈的加载图标。&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: [
+        &quot;设备信息&quot;,
+        &quot;应用版本&quot;,
+        &quot;交易标识&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;R12&quot;,
+      &quot;date&quot;: &quot;2026-04-20&quot;,
+      &quot;source&quot;: &quot;应用评论&quot;,
+      &quot;issue_category&quot;: &quot;功能需求&quot;,
+      &quot;sentiment&quot;: &quot;中性&quot;,
+      &quot;urgency&quot;: &quot;低&quot;,
+      &quot;user_need&quot;: &quot;无需安装应用即可获得班车延误信息&quot;,
+      &quot;requested_action&quot;: &quot;增加简单的短信通知选项&quot;,
+      &quot;evidence_quote&quot;: &quot;请增加一个简单的短信通知选项。&quot;,
+      &quot;needs_follow_up&quot;: true,
+      &quot;missing_information&quot;: []
+    }
+  ],
+  &quot;dataset_level_insights&quot;: {
+    &quot;most_common_issue_categories&quot;: [
+      &quot;应用程序漏洞&quot;,
+      &quot;时效准确性&quot;,
+      &quot;可访问性&quot;
+    ],
+    &quot;highest_priority_record_ids&quot;: [
+      &quot;R01&quot;,
+      &quot;R02&quot;,
+      &quot;R06&quot;,
+      &quot;R09&quot;,
+      &quot;R11&quot;
+    ],
+    &quot;overall_sentiment&quot;: &quot;中性&quot;
+  }
+}
+
+</code></pre>
+<h1>第四部分 — 校验说明</h1>
+<p>JSON 合法性：上方 JSON 内容格式正确， 已在 https://jsonlint.com/ 上检验过
+已检查每一条的 evidence_quote 都来自原文。
+交叉验证了 chatgpt, grok , deepseek 三个平台对 JSON 输出的数据， 发现 grok 和 deepseek 没有正确理解 requested_action 这个字段的要求， 会产生幻觉， 写一些数据集中不存在的内容进去。</p>
+<h1>第五部分 — 学习反思</h1>
+<p>编写高质量的 prompt 可以提高LLM的输出质量， 特别是 JSON 格式的数据输出， 可以对接我们日常编程的 REST 接口调用， 非常重要。
+发现不同LLM平台之间的输出有一些差距，
+在使用较差的LLM模型时， 需要增加额外的 prompt ： “特别是 requested_action ，如果数据集中不存在， 就写null。“， 才能纠正幻觉问题。</p>
+</body></html>
